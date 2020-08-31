@@ -355,23 +355,27 @@ public final class MoreCollectors {
     }
 
     /**
-     * 将一个Stream连接上另一个Stream，返回一个新的Stream的搜集器
+     * 已废弃：将一个Stream连接上另一个Stream，返回一个新的Stream的搜集器
+     * <p>尽量不要这么做，这可能会浪费一轮Stream迭代，可直接使用{@link Stream#concat(java.util.stream.Stream, java.util.stream.Stream)}</p>
      *
      * @param other 另一个Stream
      * @param <T> 输入流的元素类型泛型
      * @return 连接另一个Stream的搜集器
      */
+    @Deprecated
     public static <T> Collector<T, ?, Stream<T>> concat(Stream<? extends T> other) {
         return combine(toList(), list -> Stream.concat(list.stream(), other));
     }
 
     /**
      * 将一个Stream连接上另一个元素，返回一个新的Stream的搜集器
+     * <p>尽量不要这么做，这会可能会浪费一轮Stream迭代</p>
      *
      * @param element 另一个元素
      * @param <T> 输入流的元素类型泛型
      * @return 连接另一个元素的搜集器
      */
+    @Deprecated
     public static <T> Collector<T, ?, Stream<T>> concat(T element) {
         return concat(of(element));
     }
