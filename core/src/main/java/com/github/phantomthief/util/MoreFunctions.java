@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 
 /**
  * MoreFunctions增强工具集合
- * <p>Java函数式变成快捷工具集合，方便函数运行的异常处理等</p>
+ * <p>Java执行函数相关的快捷工具集合，方便运行的异常处理等</p>
  *
  * @author w.vela
  */
